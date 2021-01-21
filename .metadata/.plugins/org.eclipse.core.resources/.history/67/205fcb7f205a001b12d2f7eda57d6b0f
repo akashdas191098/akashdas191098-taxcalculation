@@ -1,0 +1,61 @@
+package com.nagarro.businessrule;
+
+import com.nagarro.typeenum.*;
+
+public class Businessrule 
+{
+    private String name, type;
+    private double price,tax, final_price;
+    private long quantity;
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+    
+    public void setPrice(double price) 
+    {
+        this.price= price;
+    }
+    
+    public void setQuantity(long quantity) 
+    {
+        this.quantity = quantity;
+    }
+    
+    public void setType(String type) 
+    {
+        this.type = type;
+    }
+    
+    public void taxCalulation()
+    {
+        if(typeenum.Raw.toString().equalsIgnoreCase(type)) 
+        {
+            tax = this.price*(0.125); 
+        }
+        else if(typeenum.Manufactured.toString().equalsIgnoreCase(type)) 
+        {
+            tax = (price*(0.125)) + ((0.02)*((price*(0.125)) + price));
+        }
+        else if(typeenum.Import.toString().equalsIgnoreCase(type)) 
+        {
+            tax = price*(0.1);
+            if(tax<100)
+                tax = tax+5;
+            else if(tax>100 && tax<=200)
+                tax = tax+10;
+            else
+                tax =tax+tax*(0.05);
+        }
+        final_price = price + tax;
+    }
+    
+    public void getDetails() 
+    {
+    	taxCalulation();
+        System.out.println("\tItem Name: "+name);
+        System.out.println("\tItem Price: "+price);
+        System.out.println("\tsales tax liability per item: "+tax);
+        System.out.println("\tfinal price: "+final_price);
+    }
+}

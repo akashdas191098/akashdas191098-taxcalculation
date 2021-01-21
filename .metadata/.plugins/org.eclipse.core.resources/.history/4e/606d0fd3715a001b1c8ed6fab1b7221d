@@ -1,0 +1,13 @@
+package com.nagarro.taxcalculation.constants;
+
+public class Constants {
+	public static final String NAME = "Enter Name: ";
+	public static final String PRICE = "Enter Price: ";
+	public static final String quantity = "Enter Quantity: ";
+	public static final String type = "Enter Type (Raw / Manufactured / Import): ";
+	public static final String typemandatory = "Item Type is Mandatory";
+	public static final String repeat = "\nDo you want to enter details of any other items(y/n): ";
+	public static final String end = "Code terminated";
+	public static final String n = "n";
+	public static final String error = "Error: type is not matching";
+}

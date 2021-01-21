@@ -1,0 +1,5 @@
+package com.nagarro.taxcalculation.enums;
+
+public enum TypeEnum {
+	Raw,Manufactured,Import
+}

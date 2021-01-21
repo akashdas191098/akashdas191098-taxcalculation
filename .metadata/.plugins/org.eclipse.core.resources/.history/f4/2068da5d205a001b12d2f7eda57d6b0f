@@ -1,0 +1,5 @@
+package com.nagarro.typeenum;
+
+public class Typeenum {
+	Raw,Manufactured,Import
+}

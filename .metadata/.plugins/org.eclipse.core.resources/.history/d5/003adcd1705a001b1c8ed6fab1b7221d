@@ -1,0 +1,65 @@
+package com.nagarro.taxcalculation;
+
+import com.nagarro.taxcalculation.constants.*;
+import com.nagarro.taxcalculation.model.*;
+
+import java.util.Scanner;
+
+public class TaxCalculationApp 
+{
+    public static void main(String[] args) 
+    {
+    	try
+    	{
+        boolean flag = true;
+        Scanner sc = new Scanner(System.in);
+        while(flag)
+        {
+        int count=0;
+        boolean flagType=true;
+        String str="";
+        ItemDetails itemdetail = new ItemDetails();
+        System.out.print(Constants.name);
+        itemdetail.setName(sc.nextLine());
+        System.out.print(Constants.price);
+        itemdetail.setPrice(sc.nextDouble());
+        System.out.print(Constants.quantity);
+        itemdetail.setQuantity(sc.nextLong());
+        while(flagType)
+        {
+            System.out.print(Constants.type);
+            if(count==0)
+            {
+            	sc.nextLine();
+            }
+            str=sc.nextLine();
+            count++;
+            if(str.length()>0)
+            {
+            	flagType=false;
+            }
+            else
+            {
+            	System.out.println(Constants.typemandatory);
+            }
+        }
+        itemdetail.setType(str);
+        itemdetail.getDetails();
+        System.out.print(Constants.repeat);
+        if(sc.nextLine().equalsIgnoreCase(Constants.n)) 
+        {
+            flag = false;
+        }
+        }
+        sc.close();
+    	}
+    	catch(Exception e)
+    	{
+    		System.out.println(Constants.error);
+    	}
+    	finally
+    	{
+    		System.out.println(Constants.end);
+    	}
+    }
+}
